@@ -50781,3 +50781,316 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.geoapify.com'
 2026-09-30 07:42:13,882 | [QUERY LAT LON] Query successful | Company Name: BWGAN GAMES LTD | URL: https://api.geoapify.com/v1/geocode/search | Turn: 3  Address: Bangor Business Centre, 2 Farrar Road, Bangor, Gwynedd, LL57 1LJ, Wales | Lat, Lon: 53.2237131, -4.1326513 | Lat: 53.2237131 | Lon: -4.1326513
 2026-09-30 07:42:13,921 | [QUERY LAT LON] Query successful | Company Name: BYE BYE OCEAN LTD | URL: https://api.geoapify.com/v1/geocode/search | Turn: 1  Address: Byways, Bryn-Y-Gwenin, Abergavenny, NP7 8AB, Wales | Lat, Lon: 51.8394084, -3.0559929 | Lat: 51.8394084 | Lon: -3.0559929
 2026-09-30 07:42:14,846 | [QUERY LAT LON] Query successful | Company Name: BY LYALL CAMPBELL LTD | URL: https://api.geoapify.com/v1/geocode/search | Turn: 0  Address: Clyde Offices, 48 West George Street, 2nd Floor, Glasgow, G2 1BP, Scotland | Lat, Lon: 55.8620529, -4.2532405 | Lat: 55.8620529 | Lon: -4.2532405
+2026-09-30 21:19:53,981 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 21:19:53,984 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 21:19:53,991 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 21:19:54,051 | Original dataset size: 3019
+2026-09-30 21:19:54,052 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 21:19:54,055 | Number of entries after Dedupe on company name: 3019
+2026-09-30 21:21:06,927 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 21:21:06,929 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 21:21:06,947 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 21:21:06,987 | Original dataset size: 3019
+2026-09-30 21:21:06,988 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 21:21:06,992 | Number of entries after Dedupe on company name: 3019
+2026-09-30 21:26:59,132 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 21:26:59,137 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 21:26:59,160 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 21:26:59,187 | Original dataset size: 3019
+2026-09-30 21:26:59,188 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 21:26:59,191 | Number of entries after Dedupe on company name: 3019
+2026-09-30 21:26:59,405 | [ENRICH LAT LON] Total dataframe rows: 3019
+2026-09-30 21:26:59,406 | [ENRICH LAT LON] Unique addresses: 2387
+2026-09-30 21:26:59,406 | [ENRICH LAT LON] Submitting batch 0 | Number of Addresses: 1000
+2026-09-30 21:27:00,263 | [SUBMIT GEOCODING BATCH] Job ID: 9f5f5beccc8b4289a6d4d331963cae28 | Number of Addresses: 1000
+2026-09-30 21:27:00,265 | [ENRICH LAT LON] Job Submitted | Batch: 1 | Job ID: 9f5f5beccc8b4289a6d4d331963cae28
+2026-09-30 21:27:00,511 | [GET BATCH RESULTS] Batch Pending | Attempt: 0 | Retry in 60 seconds...
+2026-09-30 21:28:00,705 | [GET BATCH RESULTS] Batch Pending | Attempt: 1 | Retry in 60 seconds...
+2026-09-30 21:29:01,006 | [GET BATCH RESULTS] Batch Pending | Attempt: 2 | Retry in 60 seconds...
+2026-09-30 21:30:01,383 | [GET BATCH RESULTS] Batch Pending | Attempt: 3 | Retry in 60 seconds...
+2026-09-30 21:31:01,633 | [GET BATCH RESULTS] Batch Pending | Attempt: 4 | Retry in 60 seconds...
+2026-09-30 21:32:02,502 | [GET BATCH RESULTS] Batch Pending | Attempt: 5 | Retry in 60 seconds...
+2026-09-30 21:33:02,701 | [GET BATCH RESULTS] Batch Pending | Attempt: 6 | Retry in 60 seconds...
+2026-09-30 21:34:02,967 | [GET BATCH RESULTS] Batch Pending | Attempt: 7 | Retry in 60 seconds...
+2026-09-30 21:35:03,360 | [GET BATCH RESULTS] Batch Pending | Attempt: 8 | Retry in 60 seconds...
+2026-09-30 21:36:03,706 | [GET BATCH RESULTS] Batch Pending | Attempt: 9 | Retry in 60 seconds...
+2026-09-30 21:37:04,050 | [GET BATCH RESULTS] Batch Pending | Attempt: 10 | Retry in 60 seconds...
+2026-09-30 21:38:04,327 | [GET BATCH RESULTS] Batch Pending | Attempt: 11 | Retry in 60 seconds...
+2026-09-30 21:39:04,698 | [GET BATCH RESULTS] Batch Pending | Attempt: 12 | Retry in 60 seconds...
+2026-09-30 21:40:04,967 | [GET BATCH RESULTS] Batch Pending | Attempt: 13 | Retry in 60 seconds...
+2026-09-30 21:41:05,233 | [GET BATCH RESULTS] Batch Pending | Attempt: 14 | Retry in 60 seconds...
+2026-09-30 21:42:05,419 | [GET BATCH RESULTS] Batch Pending | Attempt: 15 | Retry in 60 seconds...
+2026-09-30 21:43:05,609 | [GET BATCH RESULTS] Batch Pending | Attempt: 16 | Retry in 60 seconds...
+2026-09-30 21:44:05,810 | [GET BATCH RESULTS] Batch Pending | Attempt: 17 | Retry in 60 seconds...
+2026-09-30 21:45:06,079 | [GET BATCH RESULTS] Batch Pending | Attempt: 18 | Retry in 60 seconds...
+2026-09-30 21:46:06,256 | [GET BATCH RESULTS] Batch Pending | Attempt: 19 | Retry in 60 seconds...
+2026-09-30 21:47:06,526 | [GET BATCH RESULTS] Batch Pending | Attempt: 20 | Retry in 60 seconds...
+2026-09-30 22:04:17,252 | [GET BATCH RESULTS] Batch Complete | Attempt: 21
+2026-09-30 22:04:17,326 | [ENRICH LAT LON] Processing results | Batch: 1
+2026-09-30 22:04:17,329 | [ENRICH LAT LON] Submitting batch 1000 | Number of Addresses: 1000
+2026-09-30 22:04:18,003 | [SUBMIT GEOCODING BATCH] Job ID: 72d704aff0db4c0b9911642f6c7a74b3 | Number of Addresses: 1000
+2026-09-30 22:04:18,008 | [ENRICH LAT LON] Job Submitted | Batch: 2 | Job ID: 72d704aff0db4c0b9911642f6c7a74b3
+2026-09-30 22:04:18,310 | [GET BATCH RESULTS] Batch Pending | Attempt: 0 | Retry in 60 seconds...
+2026-09-30 22:07:44,500 | [GET BATCH RESULTS] Batch Pending | Attempt: 1 | Retry in 60 seconds...
+2026-09-30 22:08:44,835 | [GET BATCH RESULTS] Batch Pending | Attempt: 2 | Retry in 60 seconds...
+2026-09-30 22:09:54,715 | [GET BATCH RESULTS] Batch Pending | Attempt: 3 | Retry in 60 seconds...
+2026-09-30 22:10:55,140 | [GET BATCH RESULTS] Batch Pending | Attempt: 4 | Retry in 60 seconds...
+2026-09-30 22:11:55,439 | [GET BATCH RESULTS] Batch Pending | Attempt: 5 | Retry in 60 seconds...
+2026-09-30 22:12:55,717 | [GET BATCH RESULTS] Batch Pending | Attempt: 6 | Retry in 60 seconds...
+2026-09-30 22:13:56,036 | [GET BATCH RESULTS] Batch Pending | Attempt: 7 | Retry in 60 seconds...
+2026-09-30 22:14:56,327 | [GET BATCH RESULTS] Batch Pending | Attempt: 8 | Retry in 60 seconds...
+2026-09-30 22:15:56,671 | [GET BATCH RESULTS] Batch Pending | Attempt: 9 | Retry in 60 seconds...
+2026-09-30 22:16:56,991 | [GET BATCH RESULTS] Batch Pending | Attempt: 10 | Retry in 60 seconds...
+2026-09-30 22:17:57,280 | [GET BATCH RESULTS] Batch Pending | Attempt: 11 | Retry in 60 seconds...
+2026-09-30 22:18:57,576 | [GET BATCH RESULTS] Batch Pending | Attempt: 12 | Retry in 60 seconds...
+2026-09-30 22:19:57,874 | [GET BATCH RESULTS] Batch Pending | Attempt: 13 | Retry in 60 seconds...
+2026-09-30 22:20:58,143 | [GET BATCH RESULTS] Batch Pending | Attempt: 14 | Retry in 60 seconds...
+2026-09-30 22:21:58,336 | [GET BATCH RESULTS] Batch Pending | Attempt: 15 | Retry in 60 seconds...
+2026-09-30 22:22:58,623 | [GET BATCH RESULTS] Batch Pending | Attempt: 16 | Retry in 60 seconds...
+2026-09-30 22:23:58,837 | [GET BATCH RESULTS] Batch Pending | Attempt: 17 | Retry in 60 seconds...
+2026-09-30 22:24:59,148 | [GET BATCH RESULTS] Batch Pending | Attempt: 18 | Retry in 60 seconds...
+2026-09-30 22:25:59,548 | [GET BATCH RESULTS] Batch Pending | Attempt: 19 | Retry in 60 seconds...
+2026-09-30 22:27:00,245 | [GET BATCH RESULTS] Batch Pending | Attempt: 20 | Retry in 60 seconds...
+2026-09-30 22:28:00,505 | [GET BATCH RESULTS] Batch Pending | Attempt: 21 | Retry in 60 seconds...
+2026-09-30 22:29:00,837 | [GET BATCH RESULTS] Batch Pending | Attempt: 22 | Retry in 60 seconds...
+2026-09-30 22:30:01,110 | [GET BATCH RESULTS] Batch Pending | Attempt: 23 | Retry in 60 seconds...
+2026-09-30 22:31:01,543 | [GET BATCH RESULTS] Batch Pending | Attempt: 24 | Retry in 60 seconds...
+2026-09-30 22:32:01,807 | [GET BATCH RESULTS] Batch Pending | Attempt: 25 | Retry in 60 seconds...
+2026-09-30 22:33:02,068 | [GET BATCH RESULTS] Batch Pending | Attempt: 26 | Retry in 60 seconds...
+2026-09-30 22:34:02,315 | [GET BATCH RESULTS] Batch Pending | Attempt: 27 | Retry in 60 seconds...
+2026-09-30 22:35:02,695 | [GET BATCH RESULTS] Batch Pending | Attempt: 28 | Retry in 60 seconds...
+2026-09-30 22:36:02,866 | [GET BATCH RESULTS] Batch Pending | Attempt: 29 | Retry in 60 seconds...
+2026-09-30 22:37:03,037 | [GET BATCH RESULTS] Batch Pending | Attempt: 30 | Retry in 60 seconds...
+2026-09-30 22:38:03,433 | [GET BATCH RESULTS] Batch Pending | Attempt: 31 | Retry in 60 seconds...
+2026-09-30 22:39:03,690 | [GET BATCH RESULTS] Batch Pending | Attempt: 32 | Retry in 60 seconds...
+2026-09-30 22:40:04,259 | [GET BATCH RESULTS] Batch Complete | Attempt: 33
+2026-09-30 22:40:04,310 | [ENRICH LAT LON] Processing results | Batch: 2
+2026-09-30 22:40:04,312 | [ENRICH LAT LON] Submitting batch 2000 | Number of Addresses: 387
+2026-09-30 22:40:05,802 | [SUBMIT GEOCODING BATCH] Job ID: 8c077647a36d4670aa93390676150562 | Number of Addresses: 387
+2026-09-30 22:40:05,806 | [ENRICH LAT LON] Job Submitted | Batch: 3 | Job ID: 8c077647a36d4670aa93390676150562
+2026-09-30 22:40:06,021 | [GET BATCH RESULTS] Batch Pending | Attempt: 0 | Retry in 60 seconds...
+2026-09-30 22:41:06,248 | [GET BATCH RESULTS] Batch Pending | Attempt: 1 | Retry in 60 seconds...
+2026-09-30 22:42:06,638 | [GET BATCH RESULTS] Batch Pending | Attempt: 2 | Retry in 60 seconds...
+2026-09-30 22:43:06,967 | [GET BATCH RESULTS] Batch Pending | Attempt: 3 | Retry in 60 seconds...
+2026-09-30 22:44:07,289 | [GET BATCH RESULTS] Batch Pending | Attempt: 4 | Retry in 60 seconds...
+2026-09-30 22:45:07,466 | [GET BATCH RESULTS] Batch Pending | Attempt: 5 | Retry in 60 seconds...
+2026-09-30 22:46:07,734 | [GET BATCH RESULTS] Batch Pending | Attempt: 6 | Retry in 60 seconds...
+2026-09-30 22:47:08,147 | [GET BATCH RESULTS] Batch Pending | Attempt: 7 | Retry in 60 seconds...
+2026-09-30 22:48:08,413 | [GET BATCH RESULTS] Batch Pending | Attempt: 8 | Retry in 60 seconds...
+2026-09-30 22:49:08,707 | [GET BATCH RESULTS] Batch Pending | Attempt: 9 | Retry in 60 seconds...
+2026-09-30 22:50:09,198 | [GET BATCH RESULTS] Batch Pending | Attempt: 10 | Retry in 60 seconds...
+2026-09-30 22:51:09,431 | [GET BATCH RESULTS] Batch Pending | Attempt: 11 | Retry in 60 seconds...
+2026-09-30 22:52:09,666 | [GET BATCH RESULTS] Batch Pending | Attempt: 12 | Retry in 60 seconds...
+2026-09-30 22:53:10,701 | [GET BATCH RESULTS] Batch Complete | Attempt: 13
+2026-09-30 22:53:10,758 | [ENRICH LAT LON] Processing results | Batch: 3
+2026-09-30 22:53:11,317 | [ENRICH LAT LON] Geocoding Completed Successfully | 0 unique addresses
+2026-09-30 23:04:32,581 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:04:32,583 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:04:32,592 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:04:32,620 | Original dataset size: 3019
+2026-09-30 23:04:32,620 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:04:32,621 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:04:32,793 | [ENRICH LAT LON] Total dataframe rows: 3019
+2026-09-30 23:04:32,793 | [ENRICH LAT LON] Unique addresses: 2387
+2026-09-30 23:04:32,793 | [ENRICH LAT LON] Submitting batch 0 | Number of Addresses: 1000
+2026-09-30 23:04:34,874 | [SUBMIT GEOCODING BATCH] Job ID: dc40fe33937f40d193ce26bde6872301 | Number of Addresses: 1000
+2026-09-30 23:04:34,876 | [ENRICH LAT LON] Job Submitted | Batch: 1 | Job ID: dc40fe33937f40d193ce26bde6872301
+2026-09-30 23:04:35,046 | [GET BATCH RESULTS] Batch Pending | Attempt: 0 | Retry in 60 seconds...
+2026-09-30 23:06:09,766 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:06:09,769 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:06:09,778 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:06:09,798 | Original dataset size: 3019
+2026-09-30 23:06:09,798 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:06:09,813 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:07:08,574 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:07:08,576 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:07:08,587 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:07:08,664 | Original dataset size: 3019
+2026-09-30 23:07:08,664 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:07:08,668 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:07:08,980 | Number of companies established since 2019: 0
+2026-09-30 23:07:08,998 | Number of companies established since 2008: 0
+2026-09-30 23:09:39,556 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:09:39,560 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:09:39,565 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:09:39,650 | Original dataset size: 3019
+2026-09-30 23:09:39,651 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:09:39,656 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:09:39,835 | Number of companies established since 2019: 0
+2026-09-30 23:09:39,841 | Number of companies established since 2008: 0
+2026-09-30 23:11:29,548 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:11:29,551 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:11:29,561 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:11:29,599 | Original dataset size: 3019
+2026-09-30 23:11:29,599 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:11:29,604 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:11:29,731 | Number of companies established since 2019: 0
+2026-09-30 23:11:29,736 | Number of companies established since 2008: 0
+2026-09-30 23:11:46,491 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:11:46,494 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:11:46,498 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:11:46,515 | Original dataset size: 3019
+2026-09-30 23:11:46,515 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:11:46,526 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:11:46,700 | Number of companies established since 2019: 0
+2026-09-30 23:11:46,716 | Number of companies established since 2008: 0
+2026-09-30 23:12:47,468 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:12:47,470 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:12:47,478 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:12:47,503 | Original dataset size: 3019
+2026-09-30 23:12:47,504 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:12:47,507 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:12:47,646 | Number of companies established since 2019: 89
+2026-09-30 23:12:47,651 | Number of companies established since 2008: 321
+2026-09-30 23:19:27,960 | [PRINT MISSING VALUES] Missing values by column: company_name                           0
+company_number                         0
+company_status                         0
+company_type                           0
+date_of_creation                       0
+date_of_cessation                   2958
+description                         3019
+persons_with_significant_control    3019
+previous_company_names              2566
+registered_office_address              0
+service_address                     3019
+sic_codes                             33
+dtype: int64
+2026-09-30 23:19:27,966 | [PRINT MISSING VALUES] Most affected column: description
+2026-09-30 23:19:27,978 | [PRINT MISSING VALUES] Number of missing values: 14614
+2026-09-30 23:19:28,027 | Original dataset size: 3019
+2026-09-30 23:19:28,028 | Number of entries after absolute Dedupe: 3019
+
+2026-09-30 23:19:28,031 | Number of entries after Dedupe on company name: 3019
+2026-09-30 23:19:28,177 | Number of companies established since 2019: 89
+2026-09-30 23:19:28,186 | Number of companies established since 2008: 321
+2026-09-30 23:19:28,189 | Number of companies established in 2008: 12
