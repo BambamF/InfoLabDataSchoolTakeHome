@@ -1,18 +1,22 @@
-import type { Company } from "./types";
 
-const API_URL = "https://localhost:8000";
+const API_URL = "http://localhost:8000";
 
-export async function searchCompanies(lat: number, lon: number, radiusKm: number): Promise<Company[]>{
+export async function searchCompanies(
+    postcode: string,
+    radiusKm: number
+) {
     const params = new URLSearchParams({
-        lat: lat.toString(),
-        lon: lon.toString(),
-        radiusKm: radiusKm.toString()
+        postcode,
+        radius_km: radiusKm.toString()
     });
 
-    const response = await fetch(`${API_URL}/companies?${params}`);
+    const response = await fetch(
+        `${API_URL}/companies?${params}`
+    );
 
-    if (!response.ok){
-        throw new Error("Failed to search companies");
+    if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error);
     }
 
     return response.json();

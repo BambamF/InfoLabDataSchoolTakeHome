@@ -30,8 +30,7 @@ function App() {
 
 
     async function handleSearch(
-        lat: number,
-        lon: number,
+        postcode: string,
         radiusKm: number
     ) {
 
@@ -40,17 +39,16 @@ function App() {
             setError(null);
             setRoute(null);
 
-            const results =
+            const result =
                 await searchCompanies(
-                    lat,
-                    lon,
+                    postcode,
                     radiusKm
                 );
+            
+            setLatitude(result.location.latitude);
+            setLongitude(result.location.longitude);
 
-            setLatitude(lat);
-            setLongitude(lon);
-
-            setCompanies(results);
+            setCompanies(result.companies);
 
         } catch (error) {
 
@@ -76,6 +74,7 @@ function App() {
 
         try {
 
+            setError(null);
             const result =
                 await getRoute(
                     latitude,
@@ -90,9 +89,16 @@ function App() {
 
             console.error(error);
 
-            setError(
-                "Failed to retrieve route."
-            );
+            if (error instanceof Error){
+              setError(
+                error.message
+            );  
+            }
+            else{
+                setError("Failed to search companies.")
+            }
+
+            
         }
     }
 
@@ -100,29 +106,22 @@ function App() {
     return (
 
         <main>
-
             <h1>
-                Company Finder
+                Game Companies Finder
             </h1>
-
 
             <SearchForm
                 onSearch={handleSearch}
             />
 
-
             {error && (
-
                 <p>
                     {error}
                 </p>
-
             )}
-
 
             {latitude !== null &&
              longitude !== null && (
-
                 <CompanyMap
                     latitude={latitude}
                     longitude={longitude}
@@ -132,50 +131,27 @@ function App() {
                         handleCompanyClick
                     }
                 />
-
             )}
 
-
             <section>
-
                 <h2>
-                    Companies Found:{" "}
-                    {companies.length}
+                    Companies Found:{" "}{companies.length}
                 </h2>
 
-
                 {companies.map(company => (
-
-                    <article
-                        key={company.company_number}
-                    >
-
+                    <article key={company.company_number}>
                         <h3>
                             {company.company_name}
                         </h3>
-
                         <p>
-                            {
-                                company
-                                    .registered_office_address
-                            }
+                            {company.registered_office_address}
                         </p>
-
                         <p>
-                            {(
-                                company
-                                    .distance_metres
-                                / 1000
-                            ).toFixed(2)}
-                            {" "}km away
+                            {(company.distance_metres / 1000).toFixed(2)}{" "}km away
                         </p>
-
                     </article>
-
                 ))}
-
             </section>
-
         </main>
     );
 }

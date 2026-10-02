@@ -2,39 +2,31 @@ import { useState } from "react";
 
 interface SearchFormProps {
     onSearch: (
-        lat: number,
-        lon: number,
+        postcode: string,
         radiusKm: number
     ) => void;
 }
 
 function SearchForm({onSearch}: SearchFormProps){
-    const [lat, setLat] = useState("");
-    const [lon, setLon] = useState("");
+    const [postcode, setPostCode] = useState("");
     const [radius, setRadius] = useState("10");
 
-    function handleSubmit(event: React.FormEvent){
+    function handleSubmit(event: React.SubmitEvent){
         event.preventDefault();
-        const latitude = Number(lat)
-        const longitude = Number(lon)
         const radiusKm = Number(radius)
 
-        if (Number.isNaN(latitude) || Number.isNaN(longitude) || Number.isNaN(radiusKm)){
+        if (postcode.trim() === "" || Number.isNaN(radiusKm) || radiusKm <= 0){
             return;
         }
 
-        onSearch(latitude, longitude, radiusKm);
+        onSearch(postcode.trim(), radiusKm);
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Latitude
-                <input type="number" step="any" value={lat} onChange={event => setLat(event.target.value)}/>
-            </label>
-            <label>
-                Longitude
-                <input type="number" step="any" value={lon} onChange={event => setLon( event.target.value )}/>
+                Postcode
+                <input type="text" placeholder="e.g N5 2GD" value={postcode} onChange={event => setPostCode(event.target.value)}/>
             </label>
              <label> Radius (km)
                 <input type="number" min="0.1" step="0.1" value={radius} onChange={event => setRadius( event.target.value )}/>

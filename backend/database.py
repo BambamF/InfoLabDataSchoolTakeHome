@@ -37,9 +37,9 @@ def find_companies(lon: float, lat: float, radius_km: float):
                     lat,
                     lon,
 
-                    ST_Distance_Spheroid(
-                        ST_Point_2D(lat, lon),
-                        ST_Point_2D(?, ?)
+                    ST_Distance_Sphere(
+                        ST_Point(lon, lat),
+                        ST_Point(?, ?)
                     ) AS distance_metres
 
                 FROM companies
@@ -49,23 +49,15 @@ def find_companies(lon: float, lat: float, radius_km: float):
                     AND
                     lon IS NOT NULL
                     AND
-                    ST_DWithin_Spheroid(
-                        ST_Point_2D(lat, lon),
-                        ST_Point_2D(?, ?),
-                        ?    
-                    )
+                    ST_Distance_Sphere(
+                        ST_Point(lon, lat),
+                        ST_Point(?, ?)  
+                    ) <= ?
 
                 ORDER BY distance_metres
             """
 
-    result = conn.execute(query,
-                                  [lat,
-                                   lon,
-                                   
-                                   lat, 
-                                   lon,
-                                   
-                                   radius_metres]).fetchdf()
+    result = conn.execute(query, [lon, lat, lon, lat, radius_metres]).fetchdf()
 
     conn.close()
 
