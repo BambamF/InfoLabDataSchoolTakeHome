@@ -26,6 +26,10 @@ Then activate the virtual environment:
 
 `source .venv/bin/activate`
 
+Download the dependencies:
+
+`pip install -r requirements.txt`
+
 Then initialise the database:
 
 `PYTHONPATH=. python3 backend/init_db.py`
@@ -81,3 +85,5 @@ Also, I would further enrich the dataset with persons of significant control as 
 I used AI to help with duckdb as this db is new to me so I queried AI at certain times e.g. To do the radius calculations I was looking up how to use lat and lon coordinate values to locate a certain area then calculate the companies that fall within that area as queried by the user, but claude suggested that that would be overengineered and duckdb actually supplies S_Distance_Spere and S_Point facilities that would do that calculation for me. This saved me a headache.
 
 I also initially wrote a threadpool executor/ lock strategy script for enriching the lat lon values within the analysis.csv version of the data but with the 5 calls per second limitation of the GeoApify Geocoding endpoint, it was just taking far too long for over 3000 entries, watching the calls constantly sleeping was mind numbing. I noticed there was a batching option and used AI to make sense of the documentation quickly so I could use it as soon as possible. Using the batching strategy, it still took a while but it was much quicker. This also saved a lot of frustration.
+
+Finally I used AI to help with using the Leaflet embedded map, this is a tool I havent used before and I queried AI on the react leaflet syntax while also reading GeeksforGeeks to make sure I was using it correctly.
