@@ -5,7 +5,7 @@ For this project, I built a games companies locator for job candidates and game 
 
 The project utilises the Companies House company profile api to find the company details.
 
-I built the pipeline using python and pandas, the companies house api enforces a limit of 600 calls within a five minute period. To handle this, I built a custom blocking deque with an doubled sleep time on each retry.
+I built the pipeline using python and pandas, the companies house api enforces a limit of 600 calls within a five minute period. To handle this, I built a custom blocking deque with invreasing sleep times on each retry.
 
 The pipeline uses a threadpool executor with a maximum worker count of 6 and a mutex locking strategy to download the rows of data, the initial data was acquired using the gamesmap csv from gamesmap.uk with over 3000 entries.
 
@@ -25,6 +25,10 @@ The code can be run by first activating a python virtual environment:
 Then activate the virtual environment:
 
 `source .venv/bin/activate`
+
+Download the dependencies:
+
+`pip install -r requirements.txt`
 
 Then initialise the database:
 
@@ -54,7 +58,7 @@ Then run the frontend in your local developer environment:
 
 The frontend page should be active, visit [http://localhost:5173/] to view it.
 
-When done you can stop the servers using `crtl + C` and deactivate the virtual environment usint `deactivate`
+When done you can stop the servers using `crtl + C` and deactivate the virtual environment using `deactivate`
 
 To run the fetching code you will need a Companies House API Key
 
@@ -81,3 +85,5 @@ Also, I would further enrich the dataset with persons of significant control as 
 I used AI to help with duckdb as this db is new to me so I queried AI at certain times e.g. To do the radius calculations I was looking up how to use lat and lon coordinate values to locate a certain area then calculate the companies that fall within that area as queried by the user, but claude suggested that that would be overengineered and duckdb actually supplies S_Distance_Spere and S_Point facilities that would do that calculation for me. This saved me a headache.
 
 I also initially wrote a threadpool executor/ lock strategy script for enriching the lat lon values within the analysis.csv version of the data but with the 5 calls per second limitation of the GeoApify Geocoding endpoint, it was just taking far too long for over 3000 entries, watching the calls constantly sleeping was mind numbing. I noticed there was a batching option and used AI to make sense of the documentation quickly so I could use it as soon as possible. Using the batching strategy, it still took a while but it was much quicker. This also saved a lot of frustration.
+
+Finally I used AI to help with using the Leaflet embedded map, this is a tool I havent used before and I queried AI on the react leaflet syntax while also reading GeeksforGeeks to make sure I was using it correctly.
