@@ -3,7 +3,7 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 import logging
 import pandas as pd
-from rate_limiter import RateLimiter
+from .rate_limiter import RateLimiter
 from typing import Callable, Any, Optional
 from threading import Lock
 import time

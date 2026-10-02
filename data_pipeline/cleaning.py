@@ -71,4 +71,4 @@ def clean():
             print(f"Number of columns after Nan column removal: {clean_columns_df.shape[1]}")
             print()
             print(clean_columns_df.head(20))
-            clean_columns_df.to_csv(CLEAN_CSV_PATH)
+            clean_columns_df.to_csv(CLEAN_CSV_PATH, index=False)

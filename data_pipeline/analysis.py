@@ -149,13 +149,13 @@ def enrich_lat_lon(df: pd.DataFrame):
 
         logging.info(f"[ENRICH LAT LON] Processing results | Batch: {batch_number}")
         print(f"[ENRICH LAT LON] Processing results | Batch: {batch_number}")
+        print(f"[ENRICH LAT LON] Batch {batch_number}: {len(results)} results received")
 
         for result in results:
             address = result.get("query", {}).get("text", "")
-            properties = result.get("result", {})
 
-            lat = properties.get("lat")
-            lon = properties.get("lon")
+            lat = result.get("lat")
+            lon = result.get("lon")
 
             if address and lat is not None and lon is not None:
                 addresses_lat_lon_map[address] = (lat, lon)
@@ -181,6 +181,9 @@ def enrich_lat_lon(df: pd.DataFrame):
         df_copy.at[index, "lat_lon"] = f"{lat}, {lon}"
 
     logging.info(f"[ENRICH LAT LON] Geocoding Completed Successfully | {len(addresses_lat_lon_map)} unique addresses")
+    print(f"[ENRICH LAT LON] Successfully geocoded: {len(addresses_lat_lon_map)} {len(unique_addresses_df)} addresses")
+
+    
 
     return df_copy
 
@@ -217,7 +220,5 @@ def analyse():
         public_companies_df = get_public_companies(enriched_lat_lon_df)
         print()
         changed_names_df = companies_with_changed_names(enriched_lat_lon_df)
-        print()
-        changed_names_df.to_csv(ANALYSIS_CSV_PATH)
         print()
         print(changed_names_df["date_of_creation"].head(10))
