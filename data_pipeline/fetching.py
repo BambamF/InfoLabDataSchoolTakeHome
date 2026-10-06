@@ -3,7 +3,7 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 import logging
 import pandas as pd
-from .rate_limiter import RateLimiter
+from rate_limiter import RateLimiter
 from typing import Callable, Any, Optional
 from threading import Lock
 import time
@@ -50,6 +50,13 @@ GAP = 8
 base_fieldnames = ["company_name", "company_number", "company_status", "company_type",
                    "date_of_creation", "date_of_cessation", "description", "persons_with_significant_control", 
                    "previous_company_names", "registered_office_address", "service_address", "sic_codes"]
+
+raw_fieldnames = ["accounts", "annual_return", "branch_company_details", "can_file", "company_name", "company_number", "company_status", "company_status_detail", 
+                  "confirmation_statement", "corporate_annotation", "date_of_cessation", "date_of_creation", "etag", "external_registration_number", 
+                   "foreign_company_details", "has_been_liquidated", "registered_office_address", "has_charges", "has_insolvency_history", "is_community_interest_company",
+                   "jurisdiction", "last_full_members_list_date", "links", "partial_data_available", "previous_company_names", "registered_office_address", 
+                   "service_address", "sic_codes", "subtype", "super_secure_managing_officer_count", "type", "undeliverable_registered_office_address", "last_full_members_list_date",
+                   "registered_office_is_in_dispute", "has_super_secure_pscs"]
 
 mutex = Lock()
 session = requests.Session()
@@ -141,7 +148,7 @@ def add_record_to_csv(row: dict[str, Any], csv_path: str):
     with mutex:
         file_exists = os.path.isfile(csv_path)
         with open(csv_path, 'a', newline="", encoding='utf-8') as csv_file:
-            writer = csv.DictWriter(csv_file, fieldnames=base_fieldnames)
+            writer = csv.DictWriter(csv_file, fieldnames=raw_fieldnames) # Change back to base_fieldnames
             if not file_exists:
                 writer.writeheader()
             writer.writerow(row)
@@ -173,7 +180,7 @@ def raw_data_fetch(raw_data_csv_path: str, raw_data_log_path: str):
 
     if not file_exists or os.stat(raw_data_csv_path).st_size == 0:
         with open(raw_data_csv_path, 'w', encoding='utf-8', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=base_fieldnames)
+            writer = csv.DictWriter(f, fieldnames=raw_fieldnames)
             writer.writeheader()
 
     with open(raw_data_log_path, 'a', encoding='utf-8', newline='') as log_file:
