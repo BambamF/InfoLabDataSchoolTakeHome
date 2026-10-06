@@ -1,4 +1,4 @@
-# InfoLabDataSchoolTakeHome
+# InfoLabDataSchoolTakeHome Gabi Fabiyi
 End to end data pipeline and visualisation
 
 For this project, I built a games companies locator for job candidates and game journalists to be able to easily locate game companies in the UK.

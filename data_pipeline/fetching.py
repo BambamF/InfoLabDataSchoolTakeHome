@@ -148,6 +148,70 @@ def add_record_to_csv(row: dict[str, Any], csv_path: str):
 
         logging.info(f"[ADD RECORD TO CSV] Record added to csv | CSV Path: {os.path.basename(csv_path)} | Row: {str(row)}")
 
+def raw_data_fetch(raw_data_csv_path: str, raw_data_log_path: str):
+    os.makedirs(DATA_DIR, exist_ok=True)
+    os.makedirs(LOG_DIR, exist_ok=True)
+    logging.basicConfig(filename=raw_data_log_path, 
+                            format="%(asctime)s | %(message)s",
+                            level=logging.INFO)
+    processed_companies: set[str] = set()
+    file_exists = os.path.isfile(raw_data_csv_path)
+    if file_exists:
+        print(f"Existing output file found at: {os.path.basename(raw_data_csv_path)}, reading checkpoints....")
+        try:
+            with open(raw_data_csv_path, 'a', encoding='utf-8', newline="") as f:
+                reader = csv.reader(f)
+                header = next(reader, None)
+                if header:
+                    for csv_row in header:
+                        if csv_row and len(csv_row) > 0:
+                            processed_companies.add(csv_row[0].strip())
+            print(f"Checkpoint loaded, bypassing {len(processed_companies)} completed companies")
+        except Exception as e:
+            print(f"Failed to parse checkpoint safely: {str(e)}. Starting fresh...")
+            file_exists = False
+
+    if not file_exists or os.stat(raw_data_csv_path).st_size == 0:
+        with open(raw_data_csv_path, 'w', encoding='utf-8', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=base_fieldnames)
+            writer.writeheader()
+
+    with open(raw_data_log_path, 'a', encoding='utf-8', newline='') as log_file:
+        df = pd.read_csv(raw_data_csv_path)
+        raw_names = [str(n).strip() for n in df['company_name'] if str(n).strip() and str(n).lower() != 'nan']
+        todo_names = [name for name in raw_names if name not in processed_companies]
+
+        skipped_count = len(raw_names) - len(todo_names)
+        if skipped_count > 0:
+            print(f"[RAW FETCH] Bypassing {skipped_count} items (already exist in checkpoint).")
+
+        print(f"[RAW FETCH] Queueing {len(todo_names)} new companies across threadpool...")
+
+        print()
+
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+            futures = {executor.submit(fetch_profile, company_number): company_number for company_number in company_numbers}
+            for future in as_completed(futures):
+                company_number = futures[future]
+                try:
+                    row = future.result()
+                    if row:
+                        add_record_to_csv(row, raw_data_csv_path)
+                        print(f"[RAW FETCH EXECUTOR] {companies_dict.get(company_number, company_number)} -> Done.")
+                        logging.info(f"[RAW FETCH EXECUTOR] {companies_dict.get(company_number, company_number)} -> Done.")
+                    else:
+                        print(f"[RAW FETCH EXECUTOR] No row found, exception encountered, check log file.")
+                        logging.error(f"[RAW FETCH EXECUTOR] No row found, exception encountered, check log file.")
+                except Exception as e:
+                    print(f"[RAW FETCH EXECUTOR] Thread worker error encountered processing '{companies_dict.get(company_number, '')}': {str(e)}")
+                    logging.exception(f"[RAW FETCH EXECUTOR] Thread worker error encountered processing '{companies_dict.get(company_number, '')}': {str(e)}")
+
+    print(f"\nDone. Records written to {os.path.basename(raw_data_csv_path)}")
+    print()
+
+    df_out = pd.read_csv(raw_data_csv_path)
+    print(df_out.head(20))    
+
 def fetch():
     os.makedirs(DATA_DIR, exist_ok=True)
     os.makedirs(LOG_DIR, exist_ok=True)
